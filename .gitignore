@@ -25,3 +25,5 @@ yarn-debug.log*
 yarn-error.log*
 api/package-lock.json
 api/.env
+.vscode/settings.json
+src/requerimentos/Requirements.md
