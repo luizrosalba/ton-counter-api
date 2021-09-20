@@ -1,19 +1,29 @@
-const express = require('express');
-router = express.Router();
-const apiController = require('../controllers/apicontroller');
+// Controllers
+//import UserController from '../controllers/UserController';
+
+const ApiController = require('../controllers/apiController');
+const UserController = require('../controllers/userController');
+const queryValidation = require('../utils/queryvalidation');
+
+const { Router } = require('express');
+
+const routes = new Router();
 
 var path = require('path');
 const fs = require("fs")
+
+const env = process.env; 
+
 //const uuid = require("uuid");
 //const multer = require("multer");
 
 
 /////////////////////
-/* Route           */
+/* Routes           */
 /////////////////////
 
-// middleware de log de data da consulta 
-router.use(function timeLog(req, res, next) {
+// log middleware 
+routes.use(function timeLog(req, res, next) {
   var fullTime = new Date().toLocaleTimeString('en-US')
   let day = new Date().getDate();
   let month = new Date().getMonth();
@@ -22,23 +32,35 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-// verificar se o servidor está online 
-router.get('/isAlive', function(req, res) {
+// server Alive 
+routes.get('/isAlive', function(req, res) {
   res.status(200).send('Server Alive');
 });
 
-// rota exemplo de controlador
-router.get('/exemplo', function(req, res) {
-  apiController.getOne(req, res).then(
-    (ans)=> 
-      res.status(200).send(ans)
-  )
-  res.status(505)
-});
+/////////////
+// user route
+////////////
+
+// Users
+routes.post('/users/getOne', UserController.getOne);
+routes.post('/users/createUser', UserController.createUser);
+// routes.delete('/users/:id', token, UserController.delete);
+
+/////////////
+// count API routes
+////////////
+
+routes.post('/counter/accesses', ApiController.accesses);
+
+routes.post('/counter/setKeyValue', ApiController.setKeyValue);
+
+routes.post('/counter/getInfoKey', ApiController.getInfoKey);
+
+routes.post('/counter/updateKeyValue', ApiController.updateKeyValue);
 
 // For invalid routes MUST be last function 
-router.get('*', (req, res) => {
+routes.get('*', (req, res) => {
   res.send('404! This is an invalid URL.');
 });
 
-module.exports = router;
+module.exports = routes;

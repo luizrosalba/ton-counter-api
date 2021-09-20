@@ -49,10 +49,8 @@ Install dev Dependency:
 ### Countapi-js 
 The api counter
 (https://www.npmjs.com/package/countapi-js)
-Creating the key : 
-https://api.countapi.xyz/create?namespace=ton.com&value=42
 
-
+# Back-End: 
 - env configs for dev and prod 
 - Helmet for security 
 - Mysql2 Driver
@@ -63,6 +61,7 @@ https://api.countapi.xyz/create?namespace=ton.com&value=42
 - multer
 - nodemon 
 
+# Front-End: 
 
 
 
