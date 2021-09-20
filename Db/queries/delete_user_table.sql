@@ -1,0 +1,2 @@
+USE Ton;
+DROP TABLE Users;
