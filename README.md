@@ -10,6 +10,20 @@ Documentations concerning ton-count-api:
 
 https://documenter.getpostman.com/view/11935242/UUxui9yW#dbd30e3b-e53c-4fae-8fcb-91da8aa5936f
 
+## User Interface : 
+
+Front-Page (counter at footer): 
+
+![](src/requerimentos/view1.png)
+
+User-Info-Route: 
+
+![](src/requerimentos/view2.png)
+
+User-Add-Route: 
+
+![](src/requerimentos/view3.png)
+
 ## Requirements: 
 
 1) Node
