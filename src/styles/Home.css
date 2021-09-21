@@ -1,0 +1,30 @@
+.page {
+  background-color: white;
+  display: flex;
+  width: 100%;
+}
+
+.ton-body-img {
+  background-color: white;
+  display: flex;
+  width: 100%;
+}
+
+.container{
+  display: flex;
+  margin-left: 0px;
+  max-width: inherit;
+  padding: 10px 100px;
+}
+.ton-header-right{
+  margin-right: 0px;
+}
+.ton-footer {
+  background-color: rgba(32,37,42,1);
+  display: flex;
+  width: 100%;
+}
+
+.navbar-light .navbar-brand  {
+  color: white;
+}

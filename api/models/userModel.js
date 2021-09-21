@@ -30,14 +30,11 @@ class UserModel {
 
     insertOne = async (params, tableName) => {
         const { columnSet, values } = multipleColumnSet(params)
-
         const sql = `INSERT INTO ${tableName}
         (UserName, Password, Email, Cpf) VALUES (?,?,?,?)`;
 
-        const result = await query(sql, values);
-        const affectedRows = result ? result.affectedRows : 0;
-
-        return affectedRows;
+        const result = await query(sql, [values[0], values[1], values[2], values[3]]);
+        return result;
     }
 }
 

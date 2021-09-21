@@ -21,7 +21,7 @@ class UserController {
                 IdUser: id},
                 "Users"
             );
-        return res.sendStatus(200).send(user);
+        return res.status(200).send(user);
     };
 
     createUser = async (req, res) => {
@@ -37,7 +37,7 @@ class UserController {
                 req.body,
                 "Users"
             );
-        return res.sendStatus(200).send(user);
+        return res.status(200).send(user);
     };
 }
   

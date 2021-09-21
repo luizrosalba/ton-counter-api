@@ -97,3 +97,38 @@ export const updateKeyValue = (namespace, key, amount) =>
         throw e;      
     }
 })
+
+export const getUserInfo = (id) => 
+    new Promise((resolve, reject) => {
+    try {
+        let data= {
+            id
+        }
+        return api.post("/users/getOne", data).then(
+            (res) => 
+            {(res.data)?
+                resolve(res.data)
+                :
+                reject(false)    
+        })
+    }catch(e) {
+        console.log("Failed to user API");
+        throw e;      
+    }
+})
+
+export const createUser = (data) => 
+    new Promise((resolve, reject) => {
+    try {
+        return api.post("/users/createUser", data).then(
+            (res) => 
+            {(res.data)?
+                resolve(res.data)
+                :
+                reject(false)    
+        })
+    }catch(e) {
+        console.log("Failed to user API");
+        throw e;      
+    }
+})
