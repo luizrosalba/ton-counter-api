@@ -3,7 +3,6 @@
 
 const ApiController = require('../controllers/apiController');
 const UserController = require('../controllers/userController');
-const queryValidation = require('../utils/queryvalidation');
 
 const { Router } = require('express');
 
