@@ -21,6 +21,7 @@ class Home extends Component {
             <div className="page">
                 <img className="ton-body-img" 
                     src={GigaTon}
+                    alt="gigaton"
                 />
             </div>
 

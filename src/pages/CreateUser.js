@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
 
@@ -55,7 +55,7 @@ const Input = ({ label, ...props }) => {
           }}
           validationSchema={Yup.object({
             username: Yup.string()
-              .min(8, 'Tamanho mínimo de 6 letras')
+              .min(6, 'Tamanho mínimo de 6 letras')
               .max(12, 'Tamanho máximo de 12 letras')
               .required('Nome de usuário obrigatório'),
             password: Yup.string()

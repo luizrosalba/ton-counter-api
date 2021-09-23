@@ -55,7 +55,7 @@ export const getInfoKey = () =>{
     )
 }
 
-//Increment Key
+//Increment key by one
 export const updateKeyValue = () =>{
     let options={
         key: util.API_COUNTER_KEY,

@@ -14,7 +14,7 @@ const Footer = (props) => {
         <div className="ton-footer">  
             <Navbar color="dark">
                 <Container>
-                    <NavbarBrand>
+                    <NavbarBrand data-testid="footer-navbrand">
                         Contador: {count}
                     </NavbarBrand>
                 </Container>
