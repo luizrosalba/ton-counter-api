@@ -78,8 +78,15 @@ const Input = ({ label, ...props }) => {
               .oneOf([true], 'Aceitar os termos é obrigatório'),
           })}
           onSubmit={(values, { setSubmitting }) => {
-            console.log(values)
-            createUser(values)
+            createUser(values).then(
+              res=>{
+                if(res.affectedRows===1){
+                  alert("User created sucessfully")
+                }else{
+                  alert("User exists")
+                }
+              }
+            ).catch(err => alert("User exists"))
           }}
         >
           <Form>
