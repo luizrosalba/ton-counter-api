@@ -23,6 +23,7 @@
     "dev": "concurrently \"react-scripts start\" \"cd api && npm run dev\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "coverage": "concurrently \"npm test -- --coverage --watchAll\" \"cd api && npm run dev\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

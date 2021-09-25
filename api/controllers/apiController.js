@@ -18,7 +18,7 @@ class ApiController {
                 }
             )
         else {
-            return("Error");
+            return res.send("Please provide key and namespace");
         }
     };
 
