@@ -7,11 +7,11 @@ export async function serverAlive() {
             if (res.data==="Server Alive"){
                 return(true)
             }else{
-                return(false)
+                return("")
             }
         })
     }catch(e) {
-        console.log("Failed to require service");
+        console.error("Failed to require service");
         throw e;      
     }
 }
@@ -28,10 +28,10 @@ new Promise((resolve, reject) => {
             (res.data)? 
                 resolve(res.data)
             :
-                reject(false)
+                reject("")
         })
     }catch(e) {
-        console.log("Failed to counter API");
+        console.log("Failed to get key value API");
         throw e;      
     }
 })
@@ -49,10 +49,10 @@ export const setKeyValue = (namespace, key, value) =>
             {(res.data)?
                 resolve(res.data)
                 :
-                reject(false)
+                reject("")
         })
     }catch(e) {
-        console.log("Failed to counter API");
+        console.error("Failed to set key value API");
         throw e;      
     }
 })
@@ -69,10 +69,10 @@ export const getInfoKey = (namespace, key) =>
             {(res.data)?
                 resolve(res.data)
                 :
-                reject(false)    
+                reject("")    
         })
     }catch(e) {
-        console.log("Failed to counter API");
+        console.error("Failed to get Info key API");
         throw e;      
     }
 })
@@ -90,10 +90,10 @@ export const updateKeyValue = (namespace, key, amount) =>
             {(res.data)?
                 resolve(res.data)
                 :
-                reject(false)    
+                reject("")    
         })
     }catch(e) {
-        console.log("Failed to counter API");
+        console.error("Failed to update key value API");
         throw e;      
     }
 })
@@ -104,15 +104,15 @@ export const getUserInfo = (id) =>
         let data= {
             id
         }
-        return api.post("/users/getOne", data).then(
+        return api.post("/users/getUserByID", data).then(
             (res) => 
             {(res.data)?
                 resolve(res.data)
                 :
-                reject(false)    
+                reject("")    
         })
     }catch(e) {
-        console.log("Failed to user API");
+        console.error("Failed to get user info");
         throw e;      
     }
 })
@@ -125,10 +125,10 @@ export const createUser = (data) =>
             {(res.data)?
                 resolve(res.data)
                 :
-                reject(false)    
+                reject("")    
         })
     }catch(e) {
-        console.log("Failed to user API");
+        console.error("Failed to create user");
         throw e;      
     }
 })
