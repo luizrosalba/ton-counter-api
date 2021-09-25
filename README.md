@@ -10,6 +10,8 @@ Documentations concerning ton-count-api:
 
 https://documenter.getpostman.com/view/11935242/UUxui9yW#dbd30e3b-e53c-4fae-8fcb-91da8aa5936f
 
+https://documenter.getpostman.com/view/11935242/UUxui9yW
+
 ## User Interface : 
 
 Front-Page (counter at footer): 
@@ -62,10 +64,20 @@ REACT_APP_debug= true
 
 Dev usage: 
 
+Concurrently is being used to run Api and front-end
+
 - npm run dev 
 
-Prod usage: 
+Code coverage: 
+
+Api is being directly used on tests so to test API use: 
+
+- npm run coverage 
+
+Build for prod usage: 
+
 - npm run build 
+
 
 ## Aditional Database Install Informations: 
 
