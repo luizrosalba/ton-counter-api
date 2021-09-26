@@ -8,7 +8,7 @@ import tonLogo from '../../assets/ton-logo.png'
 
 const Header = () => {
     return(
-       <Navbar bg="light" expand="lg">
+       <Navbar bg="white" expand="lg">
         <Container>
             <Navbar.Brand href="home">
                 <img 
