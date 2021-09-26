@@ -17,9 +17,16 @@ const User = () => {
           (userInfo)=>{
             setUser(userInfo)
         })
-        .catch((e)=>
-            console.error("No user with this ID", e)
-        )
+        .catch((e)=>{
+
+            console.error("No user with this ID", e);
+            setUser({
+                UserName:'No user with this ID',
+                Password:'',
+                Email:'',
+                Cpf:'',
+        })
+        })
       }, [id])
 
     return (
