@@ -1,3 +1,21 @@
 .ton-createuser-input-wrapper{
     display: flex;
 }
+
+.ton-create-user-wrapper{
+    display: flex;
+    justify-content: center;
+    min-height: 80vh;
+    background-color: black;
+}
+
+.ton-create-user-form{
+    display: block;
+    margin: 10px;
+    font-Size: 1.0rem;
+    border: 2px solid black;
+    border-radius: 15%;
+    padding: 40px 40px 40px 40px;
+    max-width: 350px;
+    background-color: white;
+}    

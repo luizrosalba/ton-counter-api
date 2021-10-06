@@ -10,7 +10,9 @@ require('dotenv/config');
 var indexRouter = require('./routes/index');
 
 var corsOptions = {
-  origin: "http://localhost:3000", // dev frontend will consume
+  origin: [
+    "http://localhost:3000", // dev frontend will consume
+    "http://localhost"], // Cors for tests
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 

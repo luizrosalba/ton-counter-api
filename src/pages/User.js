@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Button from 'react-bootstrap/Button'
 
 import {
     getUserInfo
@@ -7,53 +8,89 @@ import {
 import '../styles/Home.css';
 
 const User = () => {
-    const [user, setUser] = useState(1);
-    const [id, setId] = useState(null);
+    const [user, setUser] = useState(0);
+    const [id, setId] = useState(0);
     
     useEffect(() => {
-        getUserInfo(id).then(
-          (res)=>{
-            setUser(res)
+        getUserInfo(id)
+        .then(
+          (userInfo)=>{
+            setUser(userInfo)
+        })
+        .catch((e)=>{
+
+            console.error("No user with this ID", e);
+            setUser({
+                UserName:'No user with this ID',
+                Password:'',
+                Email:'',
+                Cpf:'',
+        })
         })
       }, [id])
 
     return (
-        <>
-        {(user)?
-        (
-            <div style={{
-                display: "block",
-                margin:"30px",
-                fontSize:"24px"
-            }}>
-                User Info: 
-            <div>
-                ID: 
-                <input 
-                  type="text" 
-                  value={id}
-                  onChange={e => setId(e.target.value)}
-                  autoFocus={true}
-                />
+    <>
+    <div className="ton-user-info-wrapper">
+        <div className="ton-user-display">
+            <div className="ton-user-title-header">
+                User Info
             </div>
-            <div>
-                UserName: {user.UserName}
+            <div className="user-info-grid">
+                <div>
+                    User ID: 
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        className="user-info-input"
+                        value={id}
+                        onChange={e => setId(e.target.value)}
+                        autoFocus={true}
+                    />
+                    <Button 
+                        className="user-info-buttons"
+                        variant="outline-success"
+                        onClick={()=>{setId(id+1)}}>
+                        +
+                    </Button>
+                    <Button 
+                        className="user-info-buttons"
+                        variant="outline-danger"
+                        onClick={()=>{(id===0)?setId(0):setId(id-1)}}>
+                        -
+                    </Button>
+                </div>
+                <div>
+                    UserName:
+                </div>
+                <div>
+                    {user.UserName}
+                </div>
+                <div>
+                    Password: 
+                </div>
+                <div>
+                    {user.Password}
+                </div>
+                <div>
+                    Email:
+                </div>
+                <div>
+                    {user.Email}
+                </div>
+                <div>
+                    Cpf:
+                </div>
+                <div>
+                    {user.Cpf}
+                </div>
             </div>
-            <div>
-                Password: {user.Password}
-            </div>
-            <div>
-                Email: {user.Email}
-            </div>
-            <div>
-                Cpf: {user.Cpf}
-            </div>
-            </div>
-        ):
-        (
-            <div> No info to Display</div>
-        )}
-        </>
+
+        </div>
+    </div>
+    
+    </>
     )
 }
 export default User;

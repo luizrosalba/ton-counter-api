@@ -41,9 +41,8 @@ routes.get('/isAlive', function(req, res) {
 ////////////
 
 // Users
-routes.post('/users/getOne', UserController.getOne);
+routes.post('/users/getUserByID', UserController.getOne);
 routes.post('/users/createUser', UserController.createUser);
-// routes.delete('/users/:id', token, UserController.delete);
 
 /////////////
 // count API routes

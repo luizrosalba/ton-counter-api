@@ -2,6 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "description": "API",
+
   "scripts": {
     "start": "node ./bin/www",
     "dev": "npx nodemon",

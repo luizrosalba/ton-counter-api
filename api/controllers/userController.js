@@ -1,11 +1,3 @@
-// Dependencies
-
-// import * as Yup from 'yup';
-// import jwt from 'jsonwebtoken';
-
-// Configs
-// import authConfig from '../../config/auth';
-
 // Models
 const UserModel = require('../models/userModel');
 
@@ -26,18 +18,44 @@ class UserController {
 
     createUser = async (req, res) => {
         const {
-            UserName,
-            Password,
-            Email,
-            Cpf    
+            username,
+            password,
+            email,
+            cpf    
         } = req.body /// x-www-form-urlencoded 
+        let userCpfExists = ''
+        let userNameExists = ''
+        let userEmailExists = ''   
         let user = ''
-        if (req.body) /// validate
+        
+        if (req.body){
+
+            userCpfExists = await UserModel.findOne({ 
+                Cpf:cpf},
+                "Users"
+            );
+            if (userCpfExists) return res.status(200).send(userCpfExists)
+
+            userNameExists = await UserModel.findOne({ 
+                UserName:username},
+                "Users"
+            );         
+            if (userNameExists) return res.status(200).send(userNameExists)
+
+            userEmailExists = await UserModel.findOne({ 
+                Email:email},
+                "Users"
+            );
+            if (userEmailExists) return res.status(200).send(userEmailExists)
+
             user = await UserModel.insertOne(
                 req.body,
                 "Users"
             );
-        return res.status(200).send(user);
+            return res.status(200).send(user);
+        }else{
+            return res.send("Dados de usuário incorretos");
+        }
     };
 }
   

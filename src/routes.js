@@ -7,9 +7,9 @@ import {
 } from 'react-router-dom'
 
 import { 
-  getKeyValue,
-  setKeyValue,
-  getInfoKey,
+  // getKeyValue,
+  // setKeyValue,
+  // getInfoKey,
   updateKeyValue
 } from "./service/countService";
 
@@ -25,8 +25,8 @@ const Routes = () => {
 
   useEffect(() => {
 
-    // let data= getKeyValue()
-    // data.then(
+    // let keyValue= getKeyValue()
+    // keyValue.then(
     //     (res)=>{setCount(res.value)
     // });
 
